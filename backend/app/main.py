@@ -1,3 +1,4 @@
+from app.rides import router as rides_router
 from app.compare import router as compare_router
 from app.profile import router as profile_router
 from app.fares import router as fares_router
@@ -7,6 +8,7 @@ from math import radians, sin, cos, sqrt, atan2
 import httpx
 
 app = FastAPI(title="NaviGo API")
+app.include_router(rides_router)
 app.include_router(compare_router)
 app.include_router(profile_router)
 app.include_router(fares_router)
