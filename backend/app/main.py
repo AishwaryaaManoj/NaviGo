@@ -1,3 +1,5 @@
+from app.compare import router as compare_router
+from app.profile import router as profile_router
 from app.fares import router as fares_router
 from app.weather import router as weather_router
 from fastapi import FastAPI, HTTPException, Query
@@ -5,6 +7,8 @@ from math import radians, sin, cos, sqrt, atan2
 import httpx
 
 app = FastAPI(title="NaviGo API")
+app.include_router(compare_router)
+app.include_router(profile_router)
 app.include_router(fares_router)
 app.include_router(weather_router)
 
